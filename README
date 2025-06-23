@@ -1,3 +1,43 @@
+Here's the Ultimate SoC Boot Cheat Sheet
+
+Different chip vendors name their bootloaders differently - but the job is the same: get your OS up and running safely and securely.
+
+Here's a quick cheat sheet
+
+⚫ Qualcomm:
+
+ROM → PBL SBL/XBL → ABL → Kernel
+
+⚫ NXP / TI (like i.MX & Sitara):
+
+ROM → SPL → U-Boot → Kernel
+
+⚫ STM32MP1:
+
+BootROM → FSBL (TF-A) → SSBL (U-Boot) → Kernel
+
+⚫ Broadcom (Raspberry Pi):
+
+ROM → bootcode.bin → start.elf → Kernel
+
+⚫ Samsung (Exynos):
+
+BL1 (ROM) → BL2 → BL3 (TF-A/U-Boot) → Kernel
+
+⚫ Nvidia (Jetson):
+
+ROM → MB1 → MB2 / UEFI /CBoot → Kernel
+
+Core Idea:
+
+All SoCs follow a multi-stage boot-just different names.
+
+First, a tiny ROM checks and loads a secure loader → which sets up memory
+
+and finally loads your OS.
+
+If you're working on embedded Linux, Yocto, or custom boards, understanding these terms is critical.
+
 Linux kernel
 ============
 
